@@ -1,7 +1,18 @@
 #include "../include/advanced_array_function.h"
 
 int max_subarray_sum(int* nums, int size) {
-    return 0;
+
+    int maxx = nums[0];
+    int c = nums[0];
+
+    for(int i = 1; i < size; i++){
+        if(nums[i] > c + nums[i]){c = nums[i];}
+        else{c = c + nums[i];}
+
+        if(c > maxx){maxx = c;}
+    }
+
+    return maxx;
 }
 
 int length_of_lis(int* nums, int numsSize) {
